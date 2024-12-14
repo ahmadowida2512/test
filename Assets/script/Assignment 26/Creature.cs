@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assignment26
 {
-    // Base class
+   
     public class Creature
     {
         public virtual void Speak()
@@ -28,7 +28,7 @@ namespace Assignment26
         void Swim();
     }
 
-    // Kangaroo class implementing Creature, IRunnable, and IJumpable
+    
     public class Kangaroo : Creature, IRunnable, IJumpable
     {
         public void Run()
@@ -47,7 +47,7 @@ namespace Assignment26
         }
     }
 
-    // Duck class implementing Creature, IRunnable, and ISwimmable
+   
     public class Duck : Creature, IRunnable, ISwimmable
     {
         public void Run()
@@ -66,7 +66,6 @@ namespace Assignment26
         }
     }
 
-    // Manager class to demonstrate polymorphism
    
    
 }
