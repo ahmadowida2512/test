@@ -1,18 +1,31 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class test : MonoBehaviour
+public class OpenBook : MonoBehaviour
 {
-    
-   
-    void Start()
-    {
-        
-    }
+    public float openBookSpeed = 20;
+    float bookAngle = 0;
 
-    // Update is called once per frame
     void Update()
     {
-        float a = Mathf.Sin(Time.time);
-        transform.position += new Vector3(a * Time.deltaTime * 4f, transform.position.y, transform.position.z);
+        if (Input.GetKey(KeyCode.D)) // Right
+        {
+            bookAngle -= Time.deltaTime * openBookSpeed;
+            RotateBookCover();
+        }
+        else if (Input.GetKey(KeyCode.A)) // Left
+        {
+            bookAngle += Time.deltaTime * openBookSpeed;
+            RotateBookCover();
+        }
+    }
+
+    private void RotateBookCover()
+    {
+        bookAngle = Mathf.Clamp(bookAngle, -180, 0);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, bookAngle));
+  
     }
 }
